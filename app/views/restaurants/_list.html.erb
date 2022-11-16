@@ -1,0 +1,6 @@
+<% @restaurants.each do |restaurant| %>
+    <p>
+        <%= restaurant.name %>
+        <%= '⭐' * restaurant.rating %>
+    </p>
+<% end %>

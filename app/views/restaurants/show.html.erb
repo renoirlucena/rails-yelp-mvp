@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <p style="color: green"><%= notice %></p>
+
+  <%= render @restaurant %>
+
+  <p><strong>Reviews</strong></p>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item">
+        <%= review.content %>
+        <%= '⭐' * review.rating %>
+
+      </li>
+    <% end %>
+  </ul>
+<br>
+
+  <div>
+    <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
+    <%= link_to "Back to restaurants", restaurants_path %> |
+    <%= link_to "Create a review", new_restaurant_review_path(@restaurant) %>
+
+    <%= button_to "Destroy this restaurant", @restaurant, method: :delete, class: 'btn btn-primary mt-3' %>
+  </div>
+</div>

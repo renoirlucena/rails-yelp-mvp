@@ -1,0 +1,15 @@
+<div class="container mt-5">
+    <h1>New review</h1>
+    <%= simple_form_for [@restaurant, @review] do |f| %>
+        <%= f.input :rating %>
+        <%= f.input :content %>
+        <%= f.submit "Submit review", class: "btn btn-primary" %>
+    <% end %>
+</div>
+
+<%# assim como o form_with, o simple form precisa de 2 objetos para criar a solicitação correta: %>
+<%#
+Helper	                                HTTP request
+simple_form_for @review             	POST reviews_path -> /reviews
+simple_form_for [@restaurant, @review]	POST restaurant_reviews_path
+%>
